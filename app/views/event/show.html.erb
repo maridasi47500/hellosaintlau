@@ -1,0 +1,8 @@
+<%=render "eventpost", post: @post%>
+<%=render "eventnavig", post: @post%>
+
+
+
+<%=content_for :title do%>
+<%=@post.name%>
+<%end%>

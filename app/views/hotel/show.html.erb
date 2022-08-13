@@ -1,0 +1,8 @@
+<%=render "hotelpost", post: @post%>
+<%=render "hotelnavig", post: @post%>
+
+
+
+<%=content_for :title do%>
+<%=@post.name%>
+<%end%>

@@ -1,0 +1,191 @@
+<%=form_with model: event, scope: "", url: '/annoncez-votre-evenement/#gf_1', html:{enctype: 'multipart/form-data', target: 'gform_ajax_frame_1', id: 'gform_1'} do |form|%>
+                    
+                    
+                    
+                    <%if event.errors.messages.length > 0%><div class='validation_error'>Une erreur s’est produite lors de votre envoi. Les erreurs ont été mises en surbrillance plus bas.</div> <%end%>
+ <input type='hidden' class='gforms-pum' value='{"closepopup":false,"closedelay":0,"openpopup":false,"openpopup_id":0}' />
+                        <div class='gform_body'><ul id='gform_fields_1' class='gform_fields top_label form_sublabel_below description_below'><li id='field_1_3'  class='gfield <%=!event.errors[:input_3].blank? ? "gfield_error" : ""%> gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible' ><label class='gfield_label' for='input_1_3' >NOM DE LA MANIFESTATION :<span class='gfield_required'>*</span></label><div class='ginput_container ginput_container_text'>
+<%=form.text_field 'input_3', id: 'input_1_3', class: 'medium', tabindex: '1', "aria-required"=>"true", "aria-invalid"=>(event.errors[:input_3].blank? ? "false" : "true") %></div><div id='validation_message_1_3' class='gfield_description validation_message' aria-live='polite'><%=!event.errors[:input_3].blank? ? event.errors[:input_3][0] : ""%></div></li>
+                                
+                                
+                                
+                                <li id='field_1_4'  class='gfield <%=!event.errors[:input_4].blank? ? "gfield_error" : ""%> gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible' ><label class='gfield_label' for='input_1_4' >LIEU :<span class='gfield_required'>*</span></label><div class='ginput_container ginput_container_text'>
+<%=form.text_field 'input_4', id: 'input_1_4', class: 'medium', tabindex: '2', "aria-required"=>"true", "aria-invalid"=>(event.errors[:input_4].blank? ? "false" : "true") %></div><div id='validation_message_1_4' class='gfield_description validation_message' aria-live='polite'><%=!event.errors[:input_4].blank? ? event.errors[:input_4][0] : ""%></div></li>
+                                
+                                
+                                
+                                <li id='field_1_6'  class='gfield <%=!event.errors[:debut].blank? ? "gfield_error" : ""%> gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible' ><label class='gfield_label'  >DATE DE DÉBUT :<span class='gfield_required'>*</span></label><div id='input_1_6' class='ginput_container ginput_container_date'><div class='clear-multi'><div class='gfield_date_dropdown_month ginput_container ginput_container_date' id='input_1_6_1_container'>
+                                                
+<%=form.select 'input_6[]',("1".."12").to_a, {selected: event.input_6[0], include_blank: "Mois"},{id: 'input_1_6_1', tabindex: '3', "aria-label"=>'Mois'}%>
+    
+
+                                            
+                                            
+                                            </div><div class='gfield_date_dropdown_day ginput_container ginput_container_date' id='input_1_6_2_container'>
+                                                
+                                                
+                                                
+<%=form.select 'input_6[]',("1".."31").to_a, {selected: event.input_6[1], include_blank: "Jour"},{id: 'input_1_6_2', tabindex: '4', "aria-label"=>'Jour'}%>
+                                            
+                                            </div><div class='gfield_date_dropdown_year ginput_container ginput_container_date' id='input_1_6_3_container'>
+                                                
+<%=form.select 'input_6[]',((Date.today.year.floor(-1) - 100).to_s..(Date.today.year + 1).to_s).to_a.reverse,{selected: event.input_6[2], include_blank: "Année"},{id:'input_1_6_3', tabindex: '5', "aria-label"=>'Année'}%>
+
+                                            
+                                            
+                                            </div></div></div>
+                                    
+                                    
+                                    <div id='validation_message_1_6' class='gfield_description validation_message' aria-live='polite'><%=!event.errors[:debut].blank? ? event.errors[:debut][0] : nil%></div></li>
+                                
+                                
+                                
+                                
+                                <li id='field_1_10'  class='gfield <%=!event.errors[:end].blank? ? "gfield_error" : ""%> gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible' ><label class='gfield_label'  >DATE DE FIN :<span class='gfield_required'>*</span></label><div id='input_1_10' class='ginput_container ginput_container_date'><div class='clear-multi'><div class='gfield_date_dropdown_month ginput_container ginput_container_date' id='input_1_10_1_container'>
+<%=form.select 'input_10[]',("1".."12").to_a,{selected: event.input_10[0], include_blank: "Mois"},{id: 'input_1_10_1', tabindex: '6', "aria-label"=>'Mois'}%>
+                                            </div><div class='gfield_date_dropdown_day ginput_container ginput_container_date' id='input_1_10_2_container'>
+
+                                                
+<%=form.select 'input_10[]',("1".."31").to_a,{selected: event.input_10[1], include_blank: "Jour"}, {id: 'input_1_10_2', tabindex: '7', "aria-label"=>'Jour'}%>
+
+                                            
+                                            </div><div class='gfield_date_dropdown_year ginput_container ginput_container_date' id='input_1_10_3_container'>
+<%=form.select 'input_10[]',((Date.today.year.floor(-1) - 100).to_s..(Date.today.year + 1).to_s).to_a.reverse, {selected: event.input_10[2], include_blank: "Année"},{id: 'input_1_10_3', tabindex: '8', "aria-label"=>'Année'}%>
+                                                
+</select>
+                                            </div></div></div>
+                                    
+                                    <div id='validation_message_1_10' class='gfield_description validation_message' aria-live='polite'><%=!event.errors[:end].blank? ? event.errors[:end][0] : nil%></div></li>
+                                
+                                
+                                
+                                <li id='field_1_8'  class='gfield <%=!event.errors[:begintime].blank? ? "gfield_error" : ""%> gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible' ><label class='gfield_label gfield_label_before_complex'  >Heure de début :<span class='gfield_required'>*</span></label><div class='clear-multi'>
+                        <div class='gfield_time_hour ginput_container ginput_container_time' id='input_1_8'>
+                            <%=form.text_field 'input_8[]', value: event.input_8[0],maxlength: '2', id: 'input_1_8_1', tabindex: '9' %> <i>:</i>
+                            <label for='input_1_8_1' >HH</label>
+                        </div>
+                        <div class='gfield_time_minute ginput_container ginput_container_time'>
+                            <%=form.text_field 'input_8[]', value: event.input_8[1], maxlength: '2', id: 'input_1_8_2', tabindex: '10'%>
+                            <label for='input_1_8_2' >MM</label>
+                        </div>
+                        
+                    </div><div id='validation_message_1_8' class='gfield_description validation_message' aria-live='polite'><%=!event.errors[:begintime].blank? ? event.errors[:begintime][0] : nil%></div></li>
+                                
+                                
+                                
+                                <li id='field_1_9'  class='gfield <%=!event.errors[:endtime].blank? ? "gfield_error" : ""%> gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible' ><label class='gfield_label gfield_label_before_complex'  >Heure de fin :<span class='gfield_required'>*</span></label><div class='clear-multi'>
+                        <div class='gfield_time_hour ginput_container ginput_container_time' id='input_1_9'>
+                            <%=form.text_field 'input_9[]', value: event.input_9[0], maxlength: '2', id: 'input_1_9_1', tabindex: '12' %> <i>:</i>
+                            <label for='input_1_9_1' >HH</label>
+                        </div>
+                        <div class='gfield_time_minute ginput_container ginput_container_time'>
+                            <%=form.text_field 'input_9[]', value: event.input_9[1], maxlength: '2', id: 'input_1_9_2', tabindex: '13' %>
+                            <label for='input_1_9_2' >MM</label>
+                        </div>
+                        
+                    </div><div id='validation_message_1_9' class='gfield_description validation_message' aria-live='polite'><%=!event.errors[:endtime].blank? ? event.errors[:endtime][0] : nil%></div></li>
+                                
+                                
+                                <li id='field_1_11'  class='gfield field_sublabel_below field_description_below gfield_visibility_visible' ><label class='gfield_label' for='input_1_11' >Ajouter une date</label><div class='ginput_container ginput_container_text'>
+                       <%=form.text_field 'input_11', id: 'input_1_11', class: 'medium', tabindex: '15', "aria-invalid"=>(event.errors[:input_11].blank? ? "false" : "true") %>
+                                    </div></li>
+                                    
+                                    
+                                    
+                                    <li id='field_1_12'  class='gfield gfield_contains_required <%=!event.errors[:input_12].blank? ? "gfield_error" : ""%> field_sublabel_below field_description_below gfield_visibility_visible' ><label class='gfield_label' for='input_1_12' >Type de Manifestation :<span class='gfield_required'>*</span></label><div class='ginput_container ginput_container_multiselect'>
+                                                
+    <%=form.select 'input_12', ['Culturelle','Distraction et loisirs','Manifestation commerciale','Nature et détente','Sports'], {selected: event.input_12, size: '7', id: 'input_1_12', class: 'medium gfield_select', tabindex: '16'}, {multiple: true}%>
+     
+                                        
+                                        
+                                        </div>
+                                            <div id='validation_message_1_12' class='gfield_description validation_message' aria-live='polite'><%=!event.errors[:input_12].blank? ? event.errors[:input_12][0] : nil%></div></li>
+                                        
+                                        <li id='field_1_13'  class='gfield <%=!event.errors[:input_13].blank? ? "gfield_error" : ""%> gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible' ><label class='gfield_label' for='input_1_13' >Descriptif :<span class='gfield_required'>*</span></label><div class='ginput_container ginput_container_textarea'>
+                                                
+                                                
+    <%=form.text_area 'input_13', id: 'input_1_13', class: 'textarea medium', tabindex: '17', "aria-required"=>"true", "aria-invalid"=>(event.errors[:input_13].blank? ? "false" : "true"), rows: '10', cols: '50'%>
+                                            
+                                            
+                                            </div>
+                                            
+                                            <div id='validation_message_1_13' class='gfield_description validation_message' aria-live='polite'><%=!event.errors[:input_13].blank? ? event.errors[:input_13][0] : nil%></div></li>
+                                        
+                                        
+                                        
+                                        <li id='field_1_14'  class='gfield <%=!event.errors[:input_14].blank? ? "gfield_error" : ""%> gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible' ><label class='gfield_label' for='input_1_14' >Téléphone :<span class='gfield_required'>*</span></label><div class='ginput_container ginput_container_phone'>
+                                                
+                                                
+<%=form.text_field 'input_14', id: 'input_1_14', class: 'medium', tabindex: '18', "aria-required"=>"true", "aria-invalid"=>(event.errors[:input_14].blank? ? "false" : "true") %>
+                     <div class='instruction validation_message'>Format du numéro de téléphone : (###) ###-####</div></div><div id='validation_message_1_14' class='gfield_description validation_message' aria-live='polite'><%=!event.errors[:input_14].blank? ? event.errors[:input_14][0] : nil%></div></li>
+                                        
+<li id='field_1_15'  class='gfield field_sublabel_below field_description_below gfield_visibility_visible' ><label class='gfield_label' for='input_1_15' >E-mail :</label><div class='ginput_container ginput_container_email'>
+                            
+        <%= form.text_field 'input_15', id: 'input_1_15', class: 'medium', tabindex: '19', "aria-invalid"=>(event.errors[:input_15].blank? ? "false" : "true") %>
+                        </div></li>
+                        
+                        
+      <li id='field_1_16'  class='gfield field_sublabel_below field_description_below gfield_visibility_visible' ><label class='gfield_label' for='input_1_16' >Autres :</label><div class='ginput_container ginput_container_text'>
+<%=form.text_field 'input_16', id: 'input_1_16', class: 'medium', tabindex: '20', "aria-invalid"=>(event.errors[:input_16].blank? ? "false" : "true") %></div></li>
+      
+      
+      
+      <li id='field_1_17'  class='gfield <%=!event.errors[:input_17].blank? ? "gfield_error" : ""%> gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible' ><label class='gfield_label' for='input_1_17' >TARIFS :<span class='gfield_required'>*</span></label><div class='ginput_container ginput_container_text'>
+<%=form.text_field 'input_17', id: 'input_1_17', class: 'medium', tabindex: '21', "aria-required"=>"true", "aria-invalid"=>(event.errors[:input_17].blank? ? "false" : "true") %></div><div id='validation_message_1_17' class='gfield_description validation_message' aria-live='polite'><%=!event.errors[:input_17].blank? ? event.errors[:input_17][0] : nil%></div></li>
+      
+      
+      
+      <li id='field_1_18'  class='gfield field_sublabel_below field_description_below gfield_visibility_visible' ><label class='gfield_label' for='input_1_18' >Complément sur les tarifs :</label><div class='ginput_container ginput_container_text'>
+<%=form.text_field 'input_18', id: 'input_1_18', class: 'medium', tabindex: '22', "aria-invalid"=>(event.errors[:input_18].blank? ? "false" : "true") %></div></li>
+      
+      
+      <li id='field_1_19'  class='gfield field_sublabel_below field_description_below gfield_visibility_visible' ><label class='gfield_label'  >PHOTOS ou AFFICHE</label>
+          
+          
+          <div class='ginput_container ginput_container_fileupload'><div id='gform_multifile_upload_1_19' data-settings='{&quot;runtimes&quot;:&quot;html5,flash,html4&quot;,&quot;browse_button&quot;:&quot;gform_browse_button_1_19&quot;,&quot;container&quot;:&quot;gform_multifile_upload_1_19&quot;,&quot;drop_element&quot;:&quot;gform_drag_drop_area_1_19&quot;,&quot;filelist&quot;:&quot;gform_preview_1_19&quot;,&quot;unique_names&quot;:true,&quot;file_data_name&quot;:&quot;file&quot;,&quot;url&quot;:&quot;\/?gf_page=2dee9d14ed40839&quot;,&quot;flash_swf_url&quot;:&quot;\/wp-includes\/js\/plupload\/plupload.flash.swf&quot;,&quot;silverlight_xap_url&quot;:&quot;\/wp-includes\/js\/plupload\/plupload.silverlight.xap&quot;,&quot;filters&quot;:{&quot;mime_types&quot;:[{&quot;title&quot;:&quot;Fichiers autoris\u00e9s&quot;,&quot;extensions&quot;:&quot;jpg,gif,png,pdf,jpeg&quot;}],&quot;max_file_size&quot;:&quot;134217728b&quot;},&quot;multipart&quot;:true,&quot;urlstream_upload&quot;:false,&quot;multipart_params&quot;:{&quot;form_id&quot;:1,&quot;field_id&quot;:19},&quot;gf_vars&quot;:{&quot;max_files&quot;:&quot;3&quot;,&quot;message_id&quot;:&quot;gform_multifile_messages_1_19&quot;,&quot;disallowed_extensions&quot;:[&quot;php&quot;,&quot;asp&quot;,&quot;aspx&quot;,&quot;cmd&quot;,&quot;csh&quot;,&quot;bat&quot;,&quot;html&quot;,&quot;htm&quot;,&quot;hta&quot;,&quot;jar&quot;,&quot;exe&quot;,&quot;com&quot;,&quot;js&quot;,&quot;lnk&quot;,&quot;htaccess&quot;,&quot;phtml&quot;,&quot;ps1&quot;,&quot;ps2&quot;,&quot;php3&quot;,&quot;php4&quot;,&quot;php5&quot;,&quot;php6&quot;,&quot;py&quot;,&quot;rb&quot;,&quot;tmp&quot;]}}' class='gform_fileupload_multifile'>
+										<div id='gform_drag_drop_area_1_19' class='gform_drop_area'>
+											<span class='gform_drop_instructions'>Déposer les fichiers ici ou </span>
+<input id='gform_browse_button_1_19' <%=event.nbfichiermaxatteint? ? "disabled" : nil%> type='button' value='Sélectionnez des fichiers' class='button gform_button_select_files' aria-describedby='extensions_message_1_19' tabindex='23' />
+										</div>
+									</div><span id='extensions_message_1_19' class='screen-reader-text'>Types de fichiers acceptés : jpg, gif, png, pdf, jpeg.</span>
+                                                                        
+                                                                        
+                                                                        <div class='validation_message'>
+								<ul id='gform_multifile_messages_1_19'>
+                                                                    <%if event.nbfichiermaxatteint?%>
+                                                                    <li>Nombre de fichiers maximal atteint</li>
+                                                                    <%end%>
+								</ul>
+							</div></div>
+          
+          
+              <div id='gform_preview_1_19'>
+            
+                  <%event.fichiers.each do |tempfilename, uploadedfilename|%>
+                  <div id="<%=tempfilename.parameterize(separator: '_')%>" class="ginput_preview"><img class="gform_delete" src="/wp-content/plugins/gravityforms/images/delete.png" onclick="gformDeleteUploadedFile(1,19, this);" onkeypress="gformDeleteUploadedFile(1,19, this);" alt="Supprimer ce fichier" title="Supprimer ce fichier"> <strong><%=uploadedfilename%></strong></div>
+                  <%end%>
+                  
+          </div>
+          
+          
+          <div class='gfield_description' id='gfield_description_1_19'>Taille maximum des fichiers 10Mo.
+3 fichiers maximum.</div></li>
+
+
+<li id='field_1_21'  class='gfield field_sublabel_below field_description_below gfield_visibility_visible' ><label class='gfield_label' for='input_1_21' >CAPTCHA</label><div id='input_1_21' class='ginput_container ginput_recaptcha' data-sitekey='6LcN880ZAAAAAFeKEDthF8pQL7YSmFDfCqjqiEBB'  data-theme='light' data-tabindex='-1' data-size='invisible' data-badge='bottomright'></div></li>
+                            </ul></div>
+        <div class='gform_footer top_label'> 
+            <input type='submit' id='gform_submit_button_1' class='gform_button button' value='Envoyer' tabindex='25' onclick='if(window["gf_submitting_1"]){return false;}  window["gf_submitting_1"]=true;  ' onkeypress='if( event.keyCode == 13 ){ if(window["gf_submitting_1"]){return false;} window["gf_submitting_1"]=true;  jQuery("#gform_1").trigger("submit",[true]); }' /> 
+            <input type='hidden' name='gform_ajax' value='form_id=1&amp;title=&amp;description=&amp;tabindex=1' />
+            <input type='hidden' class='gform_hidden' name='is_submit_1' value='1' />
+            <input type='hidden' class='gform_hidden' name='gform_submit' value='1' />
+            
+            <input type='hidden' class='gform_hidden' name='gform_unique_id' value='6252db539fa08' />
+            <input type='hidden' class='gform_hidden' name='state_1' value='WyJbXSIsImMyNDkyNzNhZjMyYTM5YjdkMTY4YjljNTk1MjI3N2I0Il0=' />
+            <input type='hidden' class='gform_hidden' name='gform_target_page_number_1' id='gform_target_page_number_1' value='0' />
+            <input type='hidden' class='gform_hidden' name='gform_source_page_number_1' id='gform_source_page_number_1' value='1' />
+            <input type='hidden' name='gform_field_values' value='' />
+            <%=form.hidden_field :gform_uploaded_files, id: 'gform_uploaded_files_1'%>
+
+        </div>
+                        <%end%>

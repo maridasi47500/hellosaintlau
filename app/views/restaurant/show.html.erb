@@ -1,0 +1,8 @@
+<%=render "restaurantpost", post: @post%>
+<%=render "postnavig", post: @post%>
+
+
+
+<%=content_for :title do%>
+<%=@post.name%>
+<%end%>

@@ -1,0 +1,22 @@
+
+	<nav class="navigation post-navigation" aria-label="Publications">
+		<h2 class="screen-reader-text">Navigation de l’article</h2>
+		<div class="nav-links">
+                    <%if post.previd%>
+                    <div class="nav-previous">
+<a href="/event/<%=post.previd%>/" rel="prev"><span class="sub-title"> Previous Post</span> 
+    <div><%=post.prevtitle%></div></a>
+      
+                    </div>
+                      <%end%>
+                    <%if post.nexturl%>
+                    <div class="nav-next"><a href="/event/<%=post.nexturl%>/" rel="next">
+                            <span class="sub-title">Next Post </span> 
+                            <div><%=post.nexttitle%></div></a>
+                              
+                    </div>
+                      <%end%>
+                              
+                </div>
+	</nav>
+

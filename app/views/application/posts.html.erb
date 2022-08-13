@@ -1,0 +1,9 @@
+<%=render partial: "myposts", collection: @posts, as: :post%>
+<%=content_for :terme do%>
+<header class="page-header">
+				<h1 class="page-title"><span>Terme : <%=@titre%><span>Carte bancaire</span></span></h1>			</header>
+
+<%end%>
+<%=content_for :title do%>
+<%=@titre%>
+<%end%>
